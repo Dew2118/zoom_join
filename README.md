@@ -7,7 +7,7 @@
     4.Click Courses
     5.Click the subject that you want
     6.Click all meetings
-~~7.Click on the latest meeting~~
+    ~~7.Click on the latest meeting~~
 
     7.Click on the meeting that is the same as today
     8.Click to launch zoom tab
@@ -15,4 +15,4 @@
     10.Close browser
 
 ### All done!
-mermaid
+should I write mermaid?
