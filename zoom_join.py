@@ -69,19 +69,21 @@ for i, element in enumerate(meetings):
     #if the date is today
     if element.text == today_date and months[i].text == this_month:
         #click that meeting link
-        meeting[25+i].click()
+        if i >= 1:
+            meeting[25+i+1].click()
+        elif i >= 2:
+            meeting[25+i+2].click()
+        else:
+            meeting[25].click()
         break
     if len(meetings) - i == 1:
         driver.quit()
-
-
+meeting_link = WebDriverWait(driver, 40).until(EC.visibility_of_element_located((By.CLASS_NAME, 'ml-2'))) 
+meeting_link.click()
 sleep(2)
-#click to 'ที่นี่'
-meeting_link = driver.find_elements_by_tag_name('a')
-meeting_link[26].click()
-sleep(3)
+
 #click to always launch meetings pop up using an actual click on position
 pyautogui.click(800,300)
-sleep(1)
+sleep(0.001)
 #close chrome driver
 driver.quit()
