@@ -15,4 +15,10 @@
     10.Close browser
 
 ### All done!
-should I write mermaid?
+```mermaid
+    classDiagram
+    find_date --* Main
+    wait_for_element_to_be_clickable --* Main
+
+    find_date : return weekday in thai
+    wait_for_element_to_be_clickable: only work on specific element
