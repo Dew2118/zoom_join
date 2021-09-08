@@ -32,3 +32,6 @@
     6.selenium.webdriver.support.ui --> WebDriverWait
     7.selenium.webdriver.support --> expected_conditions as EC
     8.datetime
+
+## Progress
+11.36 - Add wait for element of 'ที่นี่' to be clickable
