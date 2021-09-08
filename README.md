@@ -19,8 +19,9 @@
     classDiagram
     find_date --* Main
     wait_for_element_to_be_clickable --* Main
-    find_date : return weekday in thai
-    wait_for_element_to_be_clickable: only work on specific elements
+    find_month --* Main
+    find_month : month thai
+    find_date : weekday thai
 ```
 ### Imports 
     1.webdriver_manager.chrome  - ChromeDriverManager
