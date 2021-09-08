@@ -35,3 +35,5 @@
 
 ## Progress
 11.36 - Add wait for element of 'ที่นี่' to be clickable
+12:00 - Unable to get wait for new tab to appear
+12:27 - Create the smallest delay (time.sleep()) after clicking 'always launch meetings' before closing the browser
