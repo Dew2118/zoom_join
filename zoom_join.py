@@ -78,7 +78,7 @@ for i, element in enumerate(meetings):
         break
     if len(meetings) - i == 1:
         driver.quit()
-meeting_link = WebDriverWait(driver, 40).until(EC.visibility_of_element_located((By.CLASS_NAME, 'ml-2'))) 
+meeting_link = WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.CLASS_NAME, 'ml-2'))) 
 meeting_link.click()
 sleep(2)
 
