@@ -19,6 +19,15 @@
     classDiagram
     find_date --* Main
     wait_for_element_to_be_clickable --* Main
-
     find_date : return weekday in thai
-    wait_for_element_to_be_clickable: only work on specific element
+    wait_for_element_to_be_clickable: only work on specific elements
+```
+### Imports 
+    1.webdriver_manager.chrome  - ChromeDriverManager
+    2.time --> sleep
+    3.selenium.webdriver.common.action_chains --> ActionChains
+    4.pyautogui
+    5.selenium.webdriver.common.by --> By
+    6.selenium.webdriver.support.ui --> WebDriverWait
+    7.selenium.webdriver.support --> expected_conditions as EC
+    8.datetime
