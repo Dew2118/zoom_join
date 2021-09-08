@@ -81,9 +81,8 @@ for i, element in enumerate(meetings):
 meeting_link = WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.CLASS_NAME, 'ml-2'))) 
 meeting_link.click()
 sleep(2)
-
 #click to always launch meetings pop up using an actual click on position
 pyautogui.click(800,300)
-sleep(0.001)
+sleep(0.0000000000000000000000000000000000000000000000000000000001)
 #close chrome driver
 driver.quit()
