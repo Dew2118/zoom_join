@@ -56,14 +56,24 @@ def find_date():
     #return todays shorten weekday in thai (จ-อา) . date of to day (1-31) ex. จ.7
     return day_dict[datetime.datetime.today().weekday()] + '.' + str(datetime.datetime.today().day)
 
+def find_month():
+    month_dict = {1:'ม.ค.', 2:'ก.พ.',3:'มี.ค.',4:'เม.ย.',5:'พ.ค.',6:'มิ.ย.',7:'ก.ค.',8:'ส.ค.',9:'ก.ย.',10:'ต.ค.',11:'พ.ย.',12:'ธ.ค.'}
+    return month_dict[datetime.datetime.today().month]
+    
+this_month = find_month()
+months = driver.find_elements_by_class_name("ss-month.ss-color-1")
+meetings = driver.find_elements_by_class_name("ss-dow-date")
 today_date = find_date()
 #loop on all of the dates of the meetings
-for i, element in enumerate(driver.find_elements_by_class_name("ss-dow-date")):
+for i, element in enumerate(meetings):
     #if the date is today
-    if element.text == today_date:
+    if element.text == today_date and months[i].text == this_month:
         #click that meeting link
         meeting[25+i].click()
         break
+    if len(meetings) - i == 1:
+        driver.quit()
+
 
 sleep(2)
 #click to 'ที่นี่'
