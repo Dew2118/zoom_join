@@ -57,24 +57,26 @@ def find_date():
     return day_dict[datetime.datetime.today().weekday()] + '.' + str(datetime.datetime.today().day)
 
 def find_month():
-    month_dict = {1:'ม.ค.', 2:'ก.พ.',3:'มี.ค.',4:'เม.ย.',5:'พ.ค.',6:'มิ.ย.',7:'ก.ค.',8:'ส.ค.',9:'ก.ย.',10:'ต.ค.',11:'พ.ย.',12:'ธ.ค.'}
-    return month_dict[datetime.datetime.today().month]
-    
+    return datetime.datetime.today().month
+month_dict = {'ม.ค.':1,'ก.พ.':2,'มี.ค.':3,'เม.ย.':4,'พ.ค.':5,'มิ.ย.':6,'ก.ค.':7,'ส.ค.':8,'ก.ย.':9,'ต.ค.':10,'พ.ย.':11,'ธ.ค.':12}
 this_month = find_month()
 months = driver.find_elements_by_class_name("ss-month.ss-color-1")
 meetings = driver.find_elements_by_class_name("ss-dow-date")
 today_date = find_date()
+add = 0
 #loop on all of the dates of the meetings
 for i, element in enumerate(meetings):
     #if the date is today
-    if element.text == today_date and months[i].text == this_month:
+    if month_dict[months[i].text] > this_month:
+        add += 1
+        break
+    if int(element.text[2:]) >= int(today_date[2:]):
+        add += 1
+        break
+    if element.text == today_date and month_dict[months[i].text] == this_month:
         #click that meeting link
-        if i >= 1:
-            meeting[25+i+1].click()
-        elif i >= 2:
-            meeting[25+i+2].click()
-        else:
-            meeting[25].click()
+        #Add more index for upcoming meetings
+        meeting[25+i+add].click()
         break
     if len(meetings) - i == 1:
         driver.quit()
